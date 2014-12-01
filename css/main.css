@@ -1,3 +1,33 @@
-#tvicon: {
-	display: inline-block;
+body {
+	background-color: #F0F0F0;
+
+}
+
+.container {
+	margin-top: 5em;
+	background-color: #fff;
+	height: auto;
+}
+
+.content, .pictureContent {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+#footer {
+	min-height: 20px;
+	height: 20px;
+}
+
+.pictureContent img {
+	padding: .5em;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.shadow {
+	-webkit-box-shadow: 0px 5px 20px 0px rgba(50, 50, 50, 0.57);
+	-moz-box-shadow:    0px 5px 20px 0px rgba(50, 50, 50, 0.57);
+	box-shadow:         0px 5px 20px 0px rgba(50, 50, 50, 0.57);
 }
