@@ -14,11 +14,6 @@ body {
 	margin-bottom: 2em;
 }
 
-#footer {
-	min-height: 20px;
-	height: 20px;
-}
-
 .pictureContent img {
 	padding: .5em;
 	display: block;
