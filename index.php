@@ -1,13 +1,13 @@
 <?php
 include ('vendor/autoload.php');
-if($_POST["message"]) {
+if(isset($_REQUEST['email'])) {
 	$sendgrid = new SendGrid('croge32', 'Cr12345432123454321');
 
 	$email = new SendGrid\Email();
-	$email->addTo('croge32@gmail.com')->
-	       setFrom('me@bar.com')->
-	       setSubject('Subject goes here')->
-	       setText('Hello World!')->
+	$email->addTo($_REQUEST['email']))->
+	       setFrom('Affordable TV <croge32@tigers.lsu.edu>')->
+	       setSubject('Ticket')->
+	       setText($_REQUEST['brand']))->
 	       setHtml('<strong>Hello World!</strong>');
 
 	$sendgrid->send($email);
@@ -154,11 +154,6 @@ if($_POST["message"]) {
 			<a name="repair" class="anchor">
     			<h3 style="padding-top: 60px; margin-top: -60px;">Repair</h3><br>
 			</a>
-
-			<form method="post" action="index.php">
-			    <textarea name="message"></textarea>
-			    <input type="submit">
-			</form>
 
 			<form role="form" method="POST" name="repair" action="form.php">
 
