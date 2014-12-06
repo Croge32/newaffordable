@@ -1,3 +1,9 @@
+<?php
+if($_POST["message"]) {
+    mail("croge32@gmail.com", "Form to email message", $_POST["message"], "From: an@email.address");
+}
+?>
+
 <html>
 
 <head>
@@ -15,6 +21,7 @@
 
 <body>
 
+	
 	<nav class="navbar navbar-default navbar-fixed-top" id="nav" role="navigation">
 	  <div class="container-fluid">
 
@@ -121,7 +128,7 @@
     			<h3 style="padding-top: 60px; margin-top: -60px;">About</h3><br>
 			</a>
 
-			<h4>Affordable In-Home TV Service, LLC has been serving South Louisiana since 1984. Our technician is a proud member of NESDA (National Electronic Service Dealers Association) and SESDA (South Eastern Service Dealers Association). He is factory trained and possesses an LA Radio and TV License as well as an F.C.C License.</h4><br>
+			<h4>Affordable In-Home TV Service, LLC has been serving South Louisiana since 1984. Our technician is a proud member of NESDA (National Electronic Service Dealers Association) and SESDA (South Eastern Service Dealers Association). He is factory trained and possesses an LA Radio and TV License as well as an F.C.C. License.</h4><br>
 
 			<h4>Contacting us is easy</h4>
 
@@ -138,9 +145,12 @@
     			<h3 style="padding-top: 60px; margin-top: -60px;">Repair</h3><br>
 			</a>
 
+			<form method="post" action="index.php">
+			    <textarea name="message"></textarea>
+			    <input type="submit">
+			</form>
 
-
-			<form role="form">
+			<form role="form" method="POST" name="repair" action="form.php">
 
 				<div class="row">
 					<div class="col-md-4 col-md-offset-1">
@@ -152,13 +162,13 @@
 
 				  	<div class="form-group">
 				    <label for="name">Name</label>
-				    <input type="text" class="form-control" id="name" placeholder="Ex. John Doe">
+				    <input type="text" name="name" class="form-control" id="name" placeholder="Ex. John Doe">
 				  </div>
 				  </div>
 				  <div class="col-md-4">
 				  	<div class="form-group">
 				    <label for="exampleInputEmail1">Phone Number</label>
-				    <input type="text" class="form-control" id="phoneNumber" placeholder="Ex: 123-456-7890">
+				    <input type="text" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="Ex: 123-456-7890">
 				  </div>
 				  </div>
 				</div>
@@ -167,13 +177,13 @@
 
 				  	<div class="form-group">
 				    <label for="name">City</label>
-				    <input type="text" class="form-control" id="city" placeholder="Ex. Baton Rouge">
+				    <input type="text" name="city" class="form-control" id="city" placeholder="Ex. Baton Rouge">
 				  </div>
 				  </div>
 				  <div class="col-md-4">
 				  	<div class="form-group">
 				    <label for="exampleInputEmail1">Street Address</label>
-				    <input type="text" class="form-control" id="address" placeholder="Ex: 123 Meadow Dr.">
+				    <input type="text" name="address" class="form-control" id="address" placeholder="Ex: 123 Meadow Dr.">
 				  </div>
 				  </div>
 				</div>
@@ -181,7 +191,7 @@
 				  <div class="col-md-4 col-md-offset-1">
 				  	<div class="form-group">
 				    <label for="exampleInputEmail1">ZIP Code</label>
-				    <input type="text" class="form-control" id="zipCode" placeholder="Ex: 70816"><br>
+				    <input type="text" name="zipCode" class="form-control" id="zipCode" placeholder="Ex: 70816"><br>
 				  </div>
 				  </div>
 				  </div>
@@ -197,13 +207,13 @@
 
 				  	<div class="form-group">
 				    <label for="name">Brand</label>
-				    <input type="text" class="form-control" id="name" placeholder="Ex. Sony, Visio, RCA...">
+				    <input type="text" name="brand" class="form-control" id="brand" placeholder="Ex. Sony, Visio, RCA...">
 				  </div>
 				  </div>
 				  <div class="col-md-4">
 				  	<div class="form-group">
 				    <label for="exampleInputEmail1">Model Number</label>
-				    <input type="text" class="form-control" id="phoneNumber" placeholder="Ex: 123-456-7890">
+				    <input type="text" name="modelNumber" class="form-control" id="modelNumber" placeholder="Ex: 123-456-7890">
 				  </div>
 				  </div>
 				</div>
@@ -211,24 +221,24 @@
 				  <div class="col-md-4 col-md-offset-1">
 				  	<div class="form-group">
 				    	<label for="name">Year</label>
-				    	<input type="text" class="form-control" id="name" placeholder="Ex. 2003">
+				    	<input type="text" name="year" class="form-control" id="year" placeholder="Ex. 2003">
 				  	</div>
 				  </div>
 
 				<div class="col-md-4">
 				  	<div class="checkbox">
 					    <label>
-					      <input type="checkbox"> Is television mounted?
+					      <input type="checkbox" name="mountedTrue"> Is television mounted?
 					    </label><br>
 					    <div class="radio">
 						  <label>
-						    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+						    <input type="radio" name="optionsRadios" id="optionsRadios1" value="radioSuddenly" checked>
 						    Television broke suddenly
 						  </label>
 						</div>
 						<div class="radio">
 						  <label>
-						    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+						    <input type="radio" name="optionsRadios" id="optionsRadios2" value="radioNotSuddenly">
 						    Television acted up and broke later
 						  </label>
 						</div>
@@ -240,7 +250,7 @@
 				  <div class="col-md-8 col-md-offset-1">
 				  	<div class="form-group">
 				    	<label for="name">Symptoms</label>
-				    	<input type="text" class="form-control" id="name" placeholder="Ex. Won't turn on, screen blurry, etc."><br>
+				    	<input type="text" name="symptom" class="form-control" id="symptom" placeholder="Ex. Won't turn on, screen blurry, etc."><br>
 				  	</div>
 				  </div>
 				</div>
@@ -251,9 +261,7 @@
 				    	<button type="submit" class="btn btn-primary">Submit</button>		
 				    </div>
 				  </div>
-				</div>
-
-			  
+				</div>		  
 
 			</form>
 
