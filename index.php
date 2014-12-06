@@ -4,7 +4,7 @@ if(isset($_REQUEST['email'])) {
 	$sendgrid = new SendGrid('croge32', 'Cr12345432123454321');
 
 	$email = new SendGrid\Email();
-	$email->addTo($_REQUEST['email']))->
+	$email->addTo($_REQUEST['email'])->
 	       setFrom('Affordable TV <croge32@tigers.lsu.edu>')->
 	       setSubject('Ticket')->
 	       setText($_REQUEST['brand']))->
