@@ -1,19 +1,3 @@
-<?php
-include ('vendor/autoload.php');
-if(isset($_REQUEST['name'])) {
-	$sendgrid = new SendGrid('croge32', 'Cr12345432123454321');
-
-	$email = new SendGrid\Email();
-	$email->addTo('croge32@gmail.com')->
-	       setFrom('Affordable TV <croge32@tigers.lsu.edu>')->
-	       setSubject('Ticket')->
-	       setText($_REQUEST['brand'])->
-	       setHtml('<strong>Hello World!</strong>');
-
-	$sendgrid->send($email);
-}
-?>
-
 <html>
 
 <head>
@@ -155,7 +139,7 @@ if(isset($_REQUEST['name'])) {
     			<h3 style="padding-top: 60px; margin-top: -60px;">Repair</h3><br>
 			</a>
 
-			<form role="form" method="POST" name="repair" action="index.php">
+			<form role="form" method="POST" name="repair" action="form.php">
 
 				<div class="row">
 					<div class="col-md-4 col-md-offset-1">
@@ -233,7 +217,7 @@ if(isset($_REQUEST['name'])) {
 				<div class="col-md-4">
 				  	<div class="checkbox">
 					    <label>
-					      <input type="checkbox" name="mountedTrue"> Is television mounted?
+					      <input type="checkbox" name="mounted"> Is television mounted?
 					    </label><br>
 					    <div class="radio">
 						  <label>
@@ -263,7 +247,7 @@ if(isset($_REQUEST['name'])) {
 				<div class="row">
 				  <div class="col-md-8">
 				  	<div class="form-group">
-				    	<button type="submit" class="btn btn-primary">Submit</button>		
+				    	<button type="submit" name="submit" class="btn btn-primary">Submit</button>		
 				    </div>
 				  </div>
 				</div>		  
