@@ -1,6 +1,16 @@
 <?php
+include ('vendor/autoload.php');
 if($_POST["message"]) {
-    mail("croge32@gmail.com", "Form to email message", $_POST["message"], "From: an@email.address");
+	$sendgrid = new SendGrid('croge32', 'Cr12345432123454321');
+
+	$email = new SendGrid\Email();
+	$email->addTo('croge32@gmail.com')->
+	       setFrom('me@bar.com')->
+	       setSubject('Subject goes here')->
+	       setText('Hello World!')->
+	       setHtml('<strong>Hello World!</strong>');
+
+	$sendgrid->send($email);
 }
 ?>
 
