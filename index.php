@@ -111,7 +111,8 @@ if(isset( $_POST['submit'] ) ) {
 				<p>Sudden: $optionsRadios</p>
 			   	<p>Symptoms: $symptom</p>";
 
-		$email->addTo('croge32@gmail.com')->
+		$email->addTo('orogers225@gmail.com')->
+			   addTo('croge32@gmail.com')->
 		       setFrom('AffordableSite@gmail.com')->
 		       setSubject('Ticket')->
 		       setHtml($ticket);
