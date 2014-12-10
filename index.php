@@ -112,6 +112,7 @@ if(isset( $_POST['submit'] ) ) {
 			   	<p>Symptoms: $symptom</p>";
 
 		$email->addTo('croge32@gmail.com')->
+				addTo('orogers225@gmail.com')->
 		       setFrom('AffordableSite@gmail.com')->
 		       setSubject('Ticket')->
 		       setHtml($ticket);
