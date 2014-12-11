@@ -110,9 +110,9 @@ if(isset( $_POST['submit'] ) ) {
 				<p>Mounted: $mounted</p>
 				<p>Sudden: $optionsRadios</p>
 			   	<p>Symptoms: $symptom</p>";
-
-		$email->addTo('orogers225@gmail.com')->
-			   addTo('croge32@gmail.com')->
+			   	
+		$email->addTo('croge32@gmail.com')->
+				addTo('orogers225@gmail.com')->
 		       setFrom('AffordableSite@gmail.com')->
 		       setSubject('Ticket')->
 		       setHtml($ticket);
