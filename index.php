@@ -328,7 +328,7 @@ if(isset( $_POST['submit'] ) ) {
 				  <div class="col-md-4">
 				  	<div class="form-group">
 				    <label for="exampleInputEmail1">Model Number</label>
-				    <input type="text" name="modelNumber" class="form-control" id="modelNumber" placeholder="Ex: 123-456-7890">
+				    <input type="text" name="modelNumber" class="form-control" id="modelNumber" placeholder="Ex: UN55F8000AFXZA">
 				  </div>
 				  </div>
 				</div>
