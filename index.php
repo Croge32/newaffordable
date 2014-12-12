@@ -18,12 +18,7 @@ if(isset( $_POST['submit'] ) ) {
 	if(!isset($_REQUEST['phoneNumber']) || strlen(trim($_REQUEST['phoneNumber'])) == 0){
     	array_push($errors, "no phone number provided");
 	} else {
-		if (preg_match("/^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/", $_REQUEST['phoneNumber'])) {
-		    $phoneNumber = $_REQUEST['phoneNumber'];
-		} else {
-    		array_push($errors, "Phone number is invalid");
-		}
-		
+		$phoneNumber = $_REQUEST['phoneNumber'];
 	}
 
 	if(!isset($_REQUEST['city']) || strlen(trim($_REQUEST['city'])) == 0){
@@ -110,7 +105,7 @@ if(isset( $_POST['submit'] ) ) {
 				<p>Mounted: $mounted</p>
 				<p>Sudden: $optionsRadios</p>
 			   	<p>Symptoms: $symptom</p>";
-			   	
+
 		$email->addTo('croge32@gmail.com')->
 				addTo('orogers225@gmail.com')->
 		       setFrom('AffordableSite@gmail.com')->
