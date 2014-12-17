@@ -123,8 +123,8 @@ if(isset( $_POST['submit'] ) ) {
 <html>
 
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1"><title>Title of the document</title>
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<title>Affordable In-Home Tv Service</title>
 	<meta name="description" content="Affordable In-Home TV Service: Relax, we come to you! Schedule an appointment today!" /> 
 	<meta name="keywords" content="television,repair,service,affordable,fix,broken,baton rouge,gonzales,central,denham springs" />
