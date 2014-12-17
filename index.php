@@ -123,9 +123,12 @@ if(isset( $_POST['submit'] ) ) {
 <html>
 
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><title>Title of the document</title>
+
 	<title>Affordable In-Home Tv Service</title>
-	
+	<meta name="description" content="Affordable In-Home TV Service: Relax, we come to you! Schedule an appointment today!" /> 
+	<meta name="keywords" content="television,repair,service,affordable,fix,broken,baton rouge,gonzales,central,denham springs" />
+
 	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/main.css">
