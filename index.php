@@ -6,7 +6,7 @@ if(isset( $_POST['submit'] ) ) {
 	$email = new SendGrid\Email();
 
 	$name = $phoneNumber = $city = $address = $zipCode = "";
-	$brand = $modelNumber = $year = $mounted = $optionsRadios = $symptom = "";
+	$brand = $modelNumber = $serial = $year = $mounted = $optionsRadios = $symptom = "";
 	$errors = array();
 
 	if(!isset($_REQUEST['name']) || strlen(trim($_REQUEST['name'])) == 0){
@@ -59,6 +59,12 @@ if(isset( $_POST['submit'] ) ) {
 		$modelNumber = $_REQUEST['modelNumber'];
 	}
 
+	if(!isset($_REQUEST['serial']) || strlen(trim($_REQUEST['serial'])) == 0){
+    	$modelNumber = "Not Provided";
+	} else {
+		$modelNumber = $_REQUEST['modelNumber'];
+	}
+
 	if(!isset($_REQUEST['year']) || strlen(trim($_REQUEST['year'])) == 0){
     	array_push($errors, "No year provided");
 	} else {
@@ -100,14 +106,15 @@ if(isset( $_POST['submit'] ) ) {
 				<p>Address: $address</p>
 				<p>ZIP: $zipCode</p>
 				<p>Brand: $brand</p>
-				<p>Model Number: $modelNumber</p>
 				<p>Year: $year</p>
+				<p>Model Number: $modelNumber</p>
+				<p>Serial Number: $serial</p>
 				<p>Mounted: $mounted</p>
 				<p>Sudden: $optionsRadios</p>
 			   	<p>Symptoms: $symptom</p>";
 
 		$email->addTo('croge32@gmail.com')->
-				addTo('orogers225@gmail.com')->
+				// addTo('orogers225@gmail.com')->
 		       setFrom('AffordableSite@gmail.com')->
 		       setSubject('Ticket')->
 		       setHtml($ticket);
@@ -133,8 +140,6 @@ if(isset( $_POST['submit'] ) ) {
 	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/main.css">
 
-	<script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
-	
 </head>
 
 <body>
@@ -167,7 +172,7 @@ if(isset( $_POST['submit'] ) ) {
 	<div class="container shadow">
 		
 		<div class="content">
-			<h3>Home</h3><br>
+			<h3>Home</h3><hr>
 
 			<h4>Do you have a broken television and no means to purchase a new set or bring your TV to a repair shop?</h4>
 
@@ -197,7 +202,7 @@ if(isset( $_POST['submit'] ) ) {
 		
 		<div class="content">
 			<a name="estimates" class="anchor">
-    			<h3 style="padding-top: 60px; margin-top: -60px;">Estimates</h3><br>
+    			<h3 style="padding-top: 60px; margin-top: -60px;">Estimates</h3><hr>
 			</a>
 
 			<h4>We work primarily within the Baton Rouge area and some surrounding cities.</h4>
@@ -230,7 +235,7 @@ if(isset( $_POST['submit'] ) ) {
 		
 		<div class="content">
 			<a name="brands" class="anchor">
-    			<h3 style="padding-top: 60px; margin-top: -60px;">Brands</h3><br>
+    			<h3 style="padding-top: 60px; margin-top: -60px;">Brands</h3><hr>
 			</a>
 
 			<h4>We service many different television brands including:</h4>
@@ -248,7 +253,7 @@ if(isset( $_POST['submit'] ) ) {
 		
 		<div class="content">
 			<a name="about" class="anchor">
-    			<h3 style="padding-top: 60px; margin-top: -60px;">About</h3><br>
+    			<h3 style="padding-top: 60px; margin-top: -60px;">About</h3><hr>
 			</a>
 
 			<h4>Affordable In-Home TV Service, LLC has been serving South Louisiana since 1984. Our technician is a proud member of NESDA 
@@ -267,7 +272,7 @@ if(isset( $_POST['submit'] ) ) {
 		
 		<div class="content">
 			<a name="repair" class="anchor">
-    			<h3 style="padding-top: 60px; margin-top: -60px;">Repair</h3><br>
+    			<h3 style="padding-top: 60px; margin-top: -60px;">Repair</h3><hr>
 			</a>
 
 			<form role="form" method="POST" name="repair" action="index.php">
@@ -282,13 +287,13 @@ if(isset( $_POST['submit'] ) ) {
 
 				  	<div class="form-group">
 				    <label for="name">Name</label>
-				    <input type="text" name="name" class="form-control" id="name" placeholder="Ex. John Doe">
+				    <input type="text" name="name" class="form-control" id="name" placeholder="Ex. John Doe" value="">
 				  </div>
 				  </div>
 				  <div class="col-md-4">
 				  	<div class="form-group">
-				    <label for="exampleInputEmail1">Phone Number</label>
-				    <input type="text" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="Ex: 123-456-7890">
+				    <label for="phoneNumber">Phone Number</label>
+				    <input type="text" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="Ex: 123-456-7890" value="">
 				  </div>
 				  </div>
 				</div>
@@ -296,22 +301,22 @@ if(isset( $_POST['submit'] ) ) {
 				  <div class="col-md-4 col-md-offset-1">
 
 				  	<div class="form-group">
-				    <label for="name">City</label>
-				    <input type="text" name="city" class="form-control" id="city" placeholder="Ex. Baton Rouge">
+				    <label for="city">City</label>
+				    <input type="text" name="city" class="form-control" id="city" placeholder="Ex. Baton Rouge" value="">
 				  </div>
 				  </div>
 				  <div class="col-md-4">
 				  	<div class="form-group">
-				    <label for="exampleInputEmail1">Street Address</label>
-				    <input type="text" name="address" class="form-control" id="address" placeholder="Ex: 123 Meadow Dr.">
+				    <label for="address">Street Address</label>
+				    <input type="text" name="address" class="form-control" id="address" placeholder="Ex: 123 Meadow Dr." value="">
 				  </div>
 				  </div>
 				</div>
 				<div class="row">
 				  <div class="col-md-4 col-md-offset-1">
 				  	<div class="form-group">
-				    <label for="exampleInputEmail1">ZIP Code</label>
-				    <input type="text" name="zipCode" class="form-control" id="zipCode" placeholder="Ex: 70816"><br>
+				    <label for="zipCode">ZIP Code</label>
+				    <input type="text" name="zipCode" class="form-control" id="zipCode" placeholder="Ex: 70816" value=""><br>
 				  </div>
 				  </div>
 				  </div>
@@ -322,30 +327,40 @@ if(isset( $_POST['submit'] ) ) {
 					<h4>TV Information</h4><br>
 				</div>
 				</div>
+
 				<div class="row">
 				  <div class="col-md-4 col-md-offset-1">
-
-				  	<div class="form-group">
-				    <label for="name">Brand</label>
-				    <input type="text" name="brand" class="form-control" id="brand" placeholder="Ex. Sony, Visio, RCA...">
-				  </div>
+					  <div class="form-group">
+					    <label for="brand">Brand</label>
+					    <input type="text" name="brand" class="form-control" id="brand" placeholder="Ex. Sony, Visio, RCA..." value="">
+					  </div>
 				  </div>
 				  <div class="col-md-4">
 				  	<div class="form-group">
-				    <label for="exampleInputEmail1">Model Number</label>
-				    <input type="text" name="modelNumber" class="form-control" id="modelNumber" placeholder="Ex: UN55F8000AFXZA">
-				  </div>
+				    	<label for="year">Year</label>
+				    	<input type="text" name="year" class="form-control" id="year" placeholder="Ex. 2003" value="">
+				  	</div>
 				  </div>
 				</div>
+
 				<div class="row">
 				  <div class="col-md-4 col-md-offset-1">
 				  	<div class="form-group">
-				    	<label for="name">Year</label>
-				    	<input type="text" name="year" class="form-control" id="year" placeholder="Ex. 2003">
+					    <label for="modelNumber">Model Number</label>
+					    <input type="text" name="modelNumber" class="form-control" id="modelNumber" placeholder="Ex: UN55F8000AFXZA" value="">
 				  	</div>
 				  </div>
+				  <div class="col-md-4">
+					  <div class="form-group">
+					    <label for="serial">Serial Number (optional)</label>
+					    <input type="text" name="serial" class="form-control" id="brand" placeholder="Ex. 82014233PU" value="">
+					  </div>
+				  </div>
+				</div>
 
-				<div class="col-md-4">
+				<div class="row">
+
+				  <div class="col-md-4 col-md-offset-1">
 				  	<div class="checkbox">
 					    <label>
 					      <input type="checkbox" name="mounted"> Is television mounted?
@@ -369,8 +384,8 @@ if(isset( $_POST['submit'] ) ) {
 				<div class="row">
 				  <div class="col-md-8 col-md-offset-1">
 				  	<div class="form-group">
-				    	<label for="name">Symptoms</label>
-				    	<input type="text" name="symptom" class="form-control" id="symptom" placeholder="Ex. Won't turn on, screen blurry, etc."><br>
+				    	<label for="symptom">Symptoms</label>
+				    	<input type="text" name="symptom" class="form-control" id="symptom" placeholder="Ex. Won't turn on, screen blurry, etc." value=""><br>
 				  	</div>
 				  </div>
 				</div>
