@@ -60,9 +60,9 @@ if(isset( $_POST['submit'] ) ) {
 	}
 
 	if(!isset($_REQUEST['serial']) || strlen(trim($_REQUEST['serial'])) == 0){
-    	$modelNumber = "Not Provided";
+    	$serial = "Not Provided";
 	} else {
-		$modelNumber = $_REQUEST['modelNumber'];
+		$serial = $_REQUEST['serial'];
 	}
 
 	if(!isset($_REQUEST['year']) || strlen(trim($_REQUEST['year'])) == 0){
