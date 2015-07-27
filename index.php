@@ -5,7 +5,7 @@ if(isset( $_POST['submit'] ) ) {
 
 	$email = new SendGrid\Email();
 
-	$name = $phoneNumber = $city = $address = $zipCode = "";
+	$name = $emailAddress = $phoneNumber = $city = $address = $zipCode = "";
 	$brand = $modelNumber = $serial = $year = $mounted = $optionsRadios = $symptom = "";
 	$errors = array();
 
@@ -13,6 +13,16 @@ if(isset( $_POST['submit'] ) ) {
     	array_push($errors, "No name provided");
 	} else {
 		$name = $_REQUEST['name'];
+	}
+
+	if(!isset($_REQUEST['emailAddress']) || strlen(trim($_REQUEST['emailAddress'])) == 0){
+    	array_push($errors, "No email provided");
+	} else {
+		if ($_REQUEST['emailAddress'] != $_REQUEST['emailAddressCheck']) {
+			array_push($errors, "Email doesn't match.");
+		} else {
+			$emailAddress = $_REQUEST['emailAddress'];
+		}
 	}
 
 	if(!isset($_REQUEST['phoneNumber']) || strlen(trim($_REQUEST['phoneNumber'])) == 0){
@@ -115,7 +125,7 @@ if(isset( $_POST['submit'] ) ) {
 
 		$email->addTo('croge32@gmail.com')->
 				addTo('orogers225@gmail.com')->
-		       setFrom('AffordableSite@gmail.com')->
+		       setFrom($emailAddress)->
 		       setSubject('Ticket')->
 		       setHtml($ticket);
 
@@ -282,44 +292,60 @@ if(isset( $_POST['submit'] ) ) {
 					<h4>Personal Information</h4><br>
 				</div>
 				</div>
+
 				<div class="row">
 				  <div class="col-md-4 col-md-offset-1">
-
 				  	<div class="form-group">
-				    <label for="name">Name</label>
-				    <input type="text" name="name" class="form-control" id="name" placeholder="Ex. John Doe" value="">
+				    	<label for="name">Name</label>
+				    	<input type="text" name="name" class="form-control" id="name" placeholder="Ex. John Doe" value="">
+				  	</div>
 				  </div>
+				</div>
+
+				<div class="row">
+				  <div class="col-md-4 col-md-offset-1">
+				  	<div class="form-group">
+				    	<label for="emailAddress">Email Address</label>
+				    	<input type="text" name="emailAddress" class="form-control" id="emailAddress" placeholder="Ex: user@internet.com" value="">
+				  	</div>
 				  </div>
 				  <div class="col-md-4">
 				  	<div class="form-group">
-				    <label for="phoneNumber">Phone Number</label>
-				    <input type="text" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="Ex: 123-456-7890" value="">
-				  </div>
+				    	<label for="emailAddressCheck">Email Address (confirm)</label>
+				    	<input type="text" name="emailAddressCheck" class="form-control" id="emailAddressCheck" placeholder="Ex: user@internet.com" value="">
+				  	</div>
 				  </div>
 				</div>
+
 				<div class="row">
 				  <div class="col-md-4 col-md-offset-1">
-
 				  	<div class="form-group">
-				    <label for="city">City</label>
-				    <input type="text" name="city" class="form-control" id="city" placeholder="Ex. Baton Rouge" value="">
-				  </div>
+				    	<label for="phoneNumber">Phone Number</label>
+				    	<input type="text" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="Ex: 123-456-7890" value="">
+				  	</div>
 				  </div>
 				  <div class="col-md-4">
 				  	<div class="form-group">
-				    <label for="address">Street Address</label>
-				    <input type="text" name="address" class="form-control" id="address" placeholder="Ex: 123 Meadow Dr." value="">
-				  </div>
+				    	<label for="city">City</label>
+				    	<input type="text" name="city" class="form-control" id="city" placeholder="Ex. Baton Rouge" value="">
+				  	</div>
 				  </div>
 				</div>
+
 				<div class="row">
 				  <div class="col-md-4 col-md-offset-1">
 				  	<div class="form-group">
-				    <label for="zipCode">ZIP Code</label>
-				    <input type="text" name="zipCode" class="form-control" id="zipCode" placeholder="Ex: 70816" value=""><br>
+					    <label for="address">Street Address</label>
+					    <input type="text" name="address" class="form-control" id="address" placeholder="Ex: 123 Meadow Dr." value="">
+				  	</div>
 				  </div>
+				  <div class="col-md-4">
+				  	<div class="form-group">
+				    	<label for="zipCode">ZIP Code</label>
+				    	<input type="text" name="zipCode" class="form-control" id="zipCode" placeholder="Ex: 70816" value=""><br>
+				  	</div>
 				  </div>
-				  </div>
+			  	</div>
 				</div>
 
 				<div class="row">
