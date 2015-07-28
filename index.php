@@ -1,7 +1,7 @@
 <?php
 include ('vendor/autoload.php');
 if(isset( $_POST['submit'] ) ) {
-	$sendgrid = new SendGrid('croge32', 'Cr12345432123454321');
+	$sendgrid = new SendGrid('croge32', 'Cr12345432123454321', array("turn_off_ssl_verification" => true));
 
 	$email = new SendGrid\Email();
 
@@ -128,9 +128,9 @@ if(isset( $_POST['submit'] ) ) {
 		       setFrom($emailAddress)->
 		       setSubject('Ticket')->
 		       setHtml($ticket);
-
 		$sendgrid->send($email);
 
+		echo $emailAddress;
 		echo '<div class="container shadow"><h4>Ticket submitted successfully! We will call you to set up an appointment shortly.</h4></div>';
 	}
 	
