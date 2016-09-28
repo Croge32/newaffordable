@@ -7,67 +7,15 @@ if(isset( $_POST['submit'] ) ) {
 
 	$name = $emailAddress = $phoneNumber = $city = $address = $zipCode = "";
 	$brand = $modelNumber = $serial = $year = $mounted = $optionsRadios = $symptom = "";
-	$errors = array();
 
-	if(!isset($_REQUEST['name']) || strlen(trim($_REQUEST['name'])) == 0){
-    	array_push($errors, "No name provided");
-	} else {
-		$name = $_REQUEST['name'];
-	}
-
-	if(!isset($_REQUEST['emailAddress']) || strlen(trim($_REQUEST['emailAddress'])) == 0){
-    	array_push($errors, "No email provided");
-	} else {
-		if ($_REQUEST['emailAddress'] != $_REQUEST['emailAddressCheck']) {
-			array_push($errors, "Email doesn't match.");
-		} else {
-			$emailAddress = $_REQUEST['emailAddress'];
-		}
-	}
-
-	if(!isset($_REQUEST['phoneNumber']) || strlen(trim($_REQUEST['phoneNumber'])) == 0){
-    	array_push($errors, "No phone number provided");
-	} else {
-		$phoneNumber = $_REQUEST['phoneNumber'];
-	}
-
-	if(!isset($_REQUEST['city']) || strlen(trim($_REQUEST['city'])) == 0){
-    	array_push($errors, "No city provided");
-	} else {
-		$city = $_REQUEST['city'];
-	}
-
-	if(!isset($_REQUEST['address']) || strlen(trim($_REQUEST['address'])) == 0){
-    	array_push($errors, "No address provided");
-	} else {
-		$address = $_REQUEST['address'];
-	}
-
-	if(!isset($_REQUEST['zipCode']) || strlen(trim($_REQUEST['zipCode'])) == 0){
-    	array_push($errors, "No zip code provided");
-	} else {
-		if (preg_match("/^\d{5}(?:[-\s]\d{4})?$/", $_REQUEST['zipCode'])) {
-		    $zipCode = $_REQUEST['zipCode'];
-		} else {
-    		array_push($errors, "Zip code is invalid");
-		}
-	}
-
-	if(!isset($_REQUEST['brand']) || strlen(trim($_REQUEST['brand'])) == 0){
-    	array_push($errors, "No brand provided");
-	} else {
-		if (preg_match("/^[A-Za-z]+$/", $_REQUEST['brand'])) {
-		    $brand = $_REQUEST['brand'];
-		} else {
-    		array_push($errors, "Brand name is invalid");
-		}
-	}
-
-	if(!isset($_REQUEST['modelNumber']) || strlen(trim($_REQUEST['modelNumber'])) == 0){
-    	array_push($errors, "No model number provided");
-	} else {
-		$modelNumber = $_REQUEST['modelNumber'];
-	}
+	$name = $_REQUEST['name'];
+	$emailAddress = $_REQUEST['emailAddress'];
+	$phoneNumber = $_REQUEST['phoneNumber'];
+	$city = $_REQUEST['city'];
+	$address = $_REQUEST['address'];
+	$zipCode = $_REQUEST['zipCode'];
+	$brand = $_REQUEST['brand'];
+	$modelNumber = $_REQUEST['modelNumber'];
 
 	if(!isset($_REQUEST['serial']) || strlen(trim($_REQUEST['serial'])) == 0){
     	$serial = "Not Provided";
@@ -75,42 +23,23 @@ if(isset( $_POST['submit'] ) ) {
 		$serial = $_REQUEST['serial'];
 	}
 
-	if(!isset($_REQUEST['year']) || strlen(trim($_REQUEST['year'])) == 0){
-    	array_push($errors, "No year provided");
-	} else {
-		if (preg_match("/^[12][0-9]{3}$/", $_REQUEST['year'])) {
-		    $year = $_REQUEST['year'];
-		} else {
-    		array_push($errors, "Year is invalid");
-		}
-	}
-
-	if(!isset($_REQUEST['symptom']) || strlen(trim($_REQUEST['symptom'])) == 0){
-    	array_push($errors, "No symptoms provided");
-	} else {
-		$symptom = $_REQUEST['symptom'];
-	}
+	$year = $_REQUEST['year'];
+	$symptom = $_REQUEST['symptom'];
 
 	if($_REQUEST['mounted'] == true) {
 		$mounted = "Mounted";
 	} else {
 		$mounted = "Not Mounted";
 	}
-
+	
 	if($_REQUEST['optionsRadios'] == "radioSuddenly") {
 		$optionsRadios = "Went out suddenly";
 	} else {
 		$optionsRadios = "Acted Up";
 	}
 
-	if (count($errors) != 0) {
-		echo "<div class='container shadow'><h4>Errors submitting ticket</h4><br>";
-		foreach ($errors as $error) {
-			echo "<h5>$error</h5>";
-		}
-		echo "</div>";
-	} else {
-		$ticket = "<p>Name: $name</p>
+
+	$ticket = "<p>Name: $name</p>
 				<p>Phone Number: $phoneNumber</p>
 				<p>City: $city</p>
 				<p>Address: $address</p>
@@ -128,9 +57,9 @@ if(isset( $_POST['submit'] ) ) {
 		       setFrom($emailAddress)->
 		       setSubject('Ticket')->
 		       setHtml($ticket);
+
 		$sendgrid->send($email);
 
-		echo $emailAddress;
 		echo '<div class="container shadow"><h4>Ticket submitted successfully! We will call you to set up an appointment shortly.</h4></div>';
 	}
 	
@@ -432,7 +361,7 @@ if(isset( $_POST['submit'] ) ) {
  	<nav class="navbar navbar-default navbar-fixed-bottom" id="footer">
 	  <div class="container-fluid">
 
-	    <p>&copy; 2014 Affordable In-Home TV Service, LLC. All Rights Reserved.</p>
+	    <p>&copy; 2016 Affordable In-Home TV Service, LLC. All Rights Reserved.</p>
 
 	  </div>
 	</nav>
