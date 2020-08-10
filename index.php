@@ -61,8 +61,6 @@ if(isset( $_POST['submit'] ) ) {
 		$sendgrid->send($email);
 
 		echo '<div class="container shadow"><h4>Ticket submitted successfully! We will call you to set up an appointment shortly.</h4></div>';
-	}
-
 }
 ?>
 
