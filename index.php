@@ -31,7 +31,7 @@ if(isset( $_POST['submit'] ) ) {
 	} else {
 		$mounted = "Not Mounted";
 	}
-	
+
 	if($_REQUEST['optionsRadios'] == "radioSuddenly") {
 		$optionsRadios = "Went out suddenly";
 	} else {
@@ -62,7 +62,7 @@ if(isset( $_POST['submit'] ) ) {
 
 		echo '<div class="container shadow"><h4>Ticket submitted successfully! We will call you to set up an appointment shortly.</h4></div>';
 	}
-	
+
 }
 ?>
 
@@ -72,7 +72,7 @@ if(isset( $_POST['submit'] ) ) {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Affordable In-Home Tv Service</title>
-	<meta name="description" content="Affordable In-Home TV Service: Relax, we come to you! Schedule an appointment today!" /> 
+	<meta name="description" content="Affordable In-Home TV Service: Relax, we come to you! Schedule an appointment today!" />
 	<meta name="keywords" content="television,repair,service,affordable,fix,broken,baton rouge,gonzales,central,denham springs" />
 
 	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
@@ -82,7 +82,7 @@ if(isset( $_POST['submit'] ) ) {
 </head>
 
 <body>
-	
+
 	<nav class="navbar navbar-default navbar-fixed-top" id="nav" role="navigation">
 	  <div class="container-fluid">
 
@@ -109,22 +109,22 @@ if(isset( $_POST['submit'] ) ) {
 	</nav>
 
 	<div class="container shadow">
-		
+
 		<div class="content">
 			<h3>Home</h3><hr>
 
 			<h4>Do you have a broken television and no means to purchase a new set or bring your TV to a repair shop?</h4>
 
-		    <p>At Affordable In-Home TV Service, we do all the work for you! Located out of Baton Rouge, Louisiana, our business has served Baton Rouge 
-		    and the surrounding area for over 30 years. Simply call and we will send a licensed technician to inspect, diagnose, and repair your television, 
+		    <p>At Affordable In-Home TV Service, we do all the work for you! Located out of Baton Rouge, Louisiana, our business has served Baton Rouge
+		    and the surrounding area for over 30 years. Simply call and we will send a licensed technician to inspect, diagnose, and repair your television,
 		    all within the comfort of your own home. We work on every popular brand and many different varieties of televisions, including projection, HDTV, LCD, LED, and many more!</p>
 
 		    <p>For a complete list of supported brands and models, visit our <a href="#brands">brands</a> page.</p>
 
 		    <h4>Why in-home repair?</h4>
 
-			<p>With our technician in your home, you can be sure you are receiving the BEST service at a BARGAIN price. With in-home repair, you don't have to fear additional damage 
-			to your television through transit to a repair shop or the negligence of a shop repairman. You will stay informed, as our technician will provide a detailed explanation of your 
+			<p>With our technician in your home, you can be sure you are receiving the BEST service at a BARGAIN price. With in-home repair, you don't have to fear additional damage
+			to your television through transit to a repair shop or the negligence of a shop repairman. You will stay informed, as our technician will provide a detailed explanation of your
 			television's issue as he repairs it.</p>
 
 			<h4>Don't overwork yourself! At Affordable In-Home TV Service, you can relax... we come to you!</h4>
@@ -132,13 +132,13 @@ if(isset( $_POST['submit'] ) ) {
  	</div>
 
 	<div class="pictureContent">
-	
+
 		<img class="shadow" src="img/van.jpg" width="600" />
 
 	</div>
 
 	<div class="container shadow">
-		
+
 		<div class="content">
 			<a name="estimates" class="anchor">
     			<h3 style="padding-top: 60px; margin-top: -60px;">Estimates</h3><hr>
@@ -148,7 +148,7 @@ if(isset( $_POST['submit'] ) ) {
 
 			<h5>In Baton Rouge, we service zip codes:</h5>
 
-			<p>70801, 70802, 70803, 70804, 70806, 70807, 70808, 70809, 70810, 70811, 70812, 70813, 70814, 70815, 70816, 70817, 70818, 70819, 70820, 70821, 70822, 
+			<p>70801, 70802, 70803, 70804, 70806, 70807, 70808, 70809, 70810, 70811, 70812, 70813, 70814, 70815, 70816, 70817, 70818, 70819, 70820, 70821, 70822,
 			70823, 70825, 70826, 70827, 70831, 70833, 70835, 70836, 70837, 70874, 70879, 70883, 70884, 70893, 70894, 70895, 70896, 70898</p>
 
 			<h5>In Denham Springs, we service zip codes:</h5>
@@ -169,9 +169,9 @@ if(isset( $_POST['submit'] ) ) {
 		</div>
  	</div>
 
-	
+
 	<div class="container shadow">
-		
+
 		<div class="content">
 			<a name="brands" class="anchor">
     			<h3 style="padding-top: 60px; margin-top: -60px;">Brands</h3><hr>
@@ -179,7 +179,7 @@ if(isset( $_POST['submit'] ) ) {
 
 			<h4>We service many different television brands including:</h4>
 
-			<p>AKAI, Denon, Emerson, GE, Harmon, Kardon, Hitachi, JVC, LG, Magnavox, Mitsubishi, Philips, Panasonic, Pioneer, Polaroid, Quasar, RCA, 
+			<p>AKAI, Denon, Emerson, GE, Harmon, Kardon, Hitachi, JVC, LG, Magnavox, Mitsubishi, Philips, Panasonic, Pioneer, Polaroid, Quasar, RCA,
 			Samsung, Sharp, Sony, Sylvania, Teac, Toshiba, Vizio, Westinghouse, Zenith, and many more.<p><br>
 
 			<h4>We specialize in Big Screen TV, HDTV, Projection TV, DLP TV, LCD TV, LED TV, and VCR repair.</h4><br>
@@ -189,14 +189,14 @@ if(isset( $_POST['submit'] ) ) {
  	</div>
 
  	<div class="container shadow">
-		
+
 		<div class="content">
 			<a name="about" class="anchor">
     			<h3 style="padding-top: 60px; margin-top: -60px;">About</h3><hr>
 			</a>
 
-			<h4>Affordable In-Home TV Service, LLC has been serving South Louisiana since 1984. Our technician is a proud member of NESDA 
-			(National Electronic Service Dealers Association) and SESDA (South Eastern Service Dealers Association). 
+			<h4>Affordable In-Home TV Service, LLC has been serving South Louisiana since 1984. Our technician is a proud member of NESDA
+			(National Electronic Service Dealers Association) and SESDA (South Eastern Service Dealers Association).
 			He is factory trained and possesses an LA Radio and TV License as well as an F.C.C. License.</h4><br>
 
 			<h4>Contacting us is easy</h4>
@@ -208,7 +208,7 @@ if(isset( $_POST['submit'] ) ) {
  	</div>
 
  	<div class="container shadow">
-		
+
 		<div class="content">
 			<a name="repair" class="anchor">
     			<h3 style="padding-top: 60px; margin-top: -60px;">Repair</h3><hr>
@@ -348,10 +348,10 @@ if(isset( $_POST['submit'] ) ) {
 				<div class="row">
 				  <div class="col-md-8">
 				  	<div class="form-group">
-				    	<button type="submit" name="submit" class="btn btn-primary">Submit</button>		
+				    	<button type="submit" name="submit" class="btn btn-primary">Submit</button>
 				    </div>
 				  </div>
-				</div>		  
+				</div>
 
 			</form>
 
@@ -361,7 +361,7 @@ if(isset( $_POST['submit'] ) ) {
  	<nav class="navbar navbar-default navbar-fixed-bottom" id="footer">
 	  <div class="container-fluid">
 
-	    <p>&copy; 2016 Affordable In-Home TV Service, LLC. All Rights Reserved.</p>
+	    <p>&copy; 2020 Affordable In-Home TV Service, LLC. All Rights Reserved.</p>
 
 	  </div>
 	</nav>
