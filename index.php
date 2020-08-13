@@ -1,7 +1,7 @@
 <?php
 include ('vendor/autoload.php');
 if(isset( $_POST['submit'] ) ) {
-	$sendgrid = new SendGrid('croge32', 'Cr12345432123454321', array("turn_off_ssl_verification" => true));
+	$sendgrid = new SendGrid(getenv('SENDGRID_API_KEY'), array("turn_off_ssl_verification" => true));
 
 	$email = new SendGrid\Email();
 
