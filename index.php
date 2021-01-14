@@ -1,15 +1,12 @@
 <?php
 include ('vendor/autoload.php');
 if(isset( $_POST['submit'] ) ) {
-	$sendgrid = new SendGrid(getenv('SENDGRID_API_KEY'), array("turn_off_ssl_verification" => true));
-
-	$email = new SendGrid\Email();
-
-	$name = $emailAddress = $phoneNumber = $city = $address = $zipCode = "";
+	$name = $emailAddress = $emailAddressCheck = $phoneNumber = $city = $address = $zipCode = "";
 	$brand = $modelNumber = $serial = $year = $mounted = $optionsRadios = $symptom = "";
 
 	$name = $_REQUEST['name'];
 	$emailAddress = $_REQUEST['emailAddress'];
+	$emailAddressCheck = $_REQUEST['emailAddressCheck'];
 	$phoneNumber = $_REQUEST['phoneNumber'];
 	$city = $_REQUEST['city'];
 	$address = $_REQUEST['address'];
@@ -17,50 +14,62 @@ if(isset( $_POST['submit'] ) ) {
 	$brand = $_REQUEST['brand'];
 	$modelNumber = $_REQUEST['modelNumber'];
 
-	if(!isset($_REQUEST['serial']) || strlen(trim($_REQUEST['serial'])) == 0){
-    	$serial = "Not Provided";
+	if ($emailAddress == '' || $emailAddressCheck == '') {
+		echo '<div class="container shadow"><h4>Please enter your email address to schedule a repair.</h4></div>';
+	} else if ($emailAddress != $emailAddressCheck) {
+		echo '<div class="container shadow"><h4>Email addresses entered do not match. Please enter and confirm your email address.</h4></div>';
+	} else if ($phoneNumber == '') {
+		echo '<div class="container shadow"><h4>Please enter your phone number to schedule a repair.</h4></div>';
 	} else {
-		$serial = $_REQUEST['serial'];
+		if(!isset($_REQUEST['serial']) || strlen(trim($_REQUEST['serial'])) == 0){
+				$serial = "Not Provided";
+		} else {
+			$serial = $_REQUEST['serial'];
+		}
+
+		$year = $_REQUEST['year'];
+		$symptom = $_REQUEST['symptom'];
+
+		if($_REQUEST['mounted'] == true) {
+			$mounted = "Mounted";
+		} else {
+			$mounted = "Not Mounted";
+		}
+
+		if($_REQUEST['optionsRadios'] == "radioSuddenly") {
+			$optionsRadios = "Went out suddenly";
+		} else {
+			$optionsRadios = "Acted Up";
+		}
+
+		$ticket = "<p>Name: $name</p>
+					<p>Phone Number: $phoneNumber</p>
+					<p>City: $city</p>
+					<p>Address: $address</p>
+					<p>ZIP: $zipCode</p>
+					<p>Brand: $brand</p>
+					<p>Year: $year</p>
+					<p>Model Number: $modelNumber</p>
+					<p>Serial Number: $serial</p>
+					<p>Mounted: $mounted</p>
+					<p>Sudden: $optionsRadios</p>
+						<p>Symptoms: $symptom</p>";
+
+		$email = new \SendGrid\Mail\Mail();
+		$email->addTo('croge32@gmail.com');
+		$email->setFrom($emailAddress);
+		$email->setSubject('Ticket');
+		$email->addContent("text/html", $ticket);
+
+		// addTo('orogers225@gmail.com')->
+		try {
+			$sendgrid = new SendGrid(getenv('SENDGRID_API_KEY'), array("turn_off_ssl_verification" => true));
+			$response = $sendgrid->send($email);
+			echo '<div class="container shadow"><h4>Ticket submitted successfully! We will call you to set up an appointment shortly.</h4></div>';
+		} catch (Exception $e) {
+			echo '<div class="container shadow"><h4>Uh oh! Something went wrong, please try again.</h4></div>';
+		}
 	}
-
-	$year = $_REQUEST['year'];
-	$symptom = $_REQUEST['symptom'];
-
-	if($_REQUEST['mounted'] == true) {
-		$mounted = "Mounted";
-	} else {
-		$mounted = "Not Mounted";
-	}
-
-	if($_REQUEST['optionsRadios'] == "radioSuddenly") {
-		$optionsRadios = "Went out suddenly";
-	} else {
-		$optionsRadios = "Acted Up";
-	}
-
-
-	$ticket = "<p>Name: $name</p>
-				<p>Phone Number: $phoneNumber</p>
-				<p>City: $city</p>
-				<p>Address: $address</p>
-				<p>ZIP: $zipCode</p>
-				<p>Brand: $brand</p>
-				<p>Year: $year</p>
-				<p>Model Number: $modelNumber</p>
-				<p>Serial Number: $serial</p>
-				<p>Mounted: $mounted</p>
-				<p>Sudden: $optionsRadios</p>
-			   	<p>Symptoms: $symptom</p>";
-
-		$email->addTo('croge32@gmail.com')->
-				addTo('orogers225@gmail.com')->
-		       setFrom($emailAddress)->
-		       setSubject('Ticket')->
-		       setHtml($ticket);
-
-		$sendgrid->send($email);
-
-		echo '<div class="container shadow"><h4>Ticket submitted successfully! We will call you to set up an appointment shortly.</h4></div>';
 }
 ?>
 
