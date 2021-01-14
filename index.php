@@ -57,11 +57,11 @@ if(isset( $_POST['submit'] ) ) {
 
 		$email = new \SendGrid\Mail\Mail();
 		$email->addTo('croge32@gmail.com');
+		$email->addTo('orogers225@gmail.com');
 		$email->setFrom($emailAddress);
 		$email->setSubject('Ticket');
 		$email->addContent("text/html", $ticket);
 
-		// addTo('orogers225@gmail.com')->
 		try {
 			$sendgrid = new SendGrid(getenv('SENDGRID_API_KEY'), array("turn_off_ssl_verification" => true));
 			$response = $sendgrid->send($email);
