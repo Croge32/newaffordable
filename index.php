@@ -368,7 +368,7 @@ if(isset( $_POST['submit'] ) ) {
  	<nav class="navbar navbar-default navbar-fixed-bottom" id="footer">
 	  <div class="container-fluid">
 
-	    <p>&copy; 2020 Affordable In-Home TV Service, LLC. All Rights Reserved.</p>
+	    <p>&copy; 2024 Affordable In-Home TV Service, LLC. All Rights Reserved.</p>
 
 	  </div>
 	</nav>
