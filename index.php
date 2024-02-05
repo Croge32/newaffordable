@@ -59,7 +59,7 @@ if(isset( $_POST['submit'] ) ) {
 		$email = new \SendGrid\Mail\Mail();
 		$email->addTo('croge32@gmail.com');
 		$email->addTo('orogers225@gmail.com');
-		$email->setFrom('orogers225@gmail.com');
+		$email->setFrom('croge32+affordablesite@gmail.com');
 		$email->setSubject('Ticket');
 		$email->addContent("text/html", $ticket);
 		$sendgrid = new SendGrid(getenv('SENDGRID_API_KEY'));
