@@ -53,17 +53,17 @@ if(isset( $_POST['submit'] ) ) {
 					<p>Serial Number: $serial</p>
 					<p>Mounted: $mounted</p>
 					<p>Sudden: $optionsRadios</p>
-						<p>Symptoms: $symptom</p>";
+					<p>Symptoms: $symptom</p><br /><br />
+					<a href='mailto:$emailAddress'>Reply to Customer</a>";
 
 		$email = new \SendGrid\Mail\Mail();
 		$email->addTo('croge32@gmail.com');
 		$email->addTo('orogers225@gmail.com');
-		$email->setFrom($emailAddress);
+		$email->setFrom('orogers225@gmail.com');
 		$email->setSubject('Ticket');
 		$email->addContent("text/html", $ticket);
-
+		$sendgrid = new SendGrid(getenv('SENDGRID_API_KEY'));
 		try {
-			$sendgrid = new SendGrid(getenv('SENDGRID_API_KEY'), array("turn_off_ssl_verification" => true));
 			$response = $sendgrid->send($email);
 			echo '<div class="container shadow"><h4>Ticket submitted successfully! We will call you to set up an appointment shortly.</h4></div>';
 		} catch (Exception $e) {
@@ -315,7 +315,7 @@ if(isset( $_POST['submit'] ) ) {
 				  <div class="col-md-4">
 					  <div class="form-group">
 					    <label for="serial">Serial Number (optional)</label>
-					    <input type="text" name="serial" class="form-control" id="brand" placeholder="Ex. 82014233PU" value="">
+					    <input type="text" name="serial" class="form-control" id="serialNumber" placeholder="Ex. 82014233PU" value="">
 					  </div>
 				  </div>
 				</div>
