@@ -56,9 +56,9 @@ if(isset( $_POST['submit'] ) ) {
 					<p>Symptoms: $symptom</p><br /><br />
 					<a href='mailto:$emailAddress'>Reply to Customer</a>";
 
+
 		$email = new \SendGrid\Mail\Mail();
-		$email->addTo('croge32@gmail.com');
-		$email->addTo('orogers225@gmail.com');
+		$email->addTo("orogers225@gmail.com", "Oray Rogers");
 		$email->setFrom('croge32+affordablesite@gmail.com');
 		$email->setSubject('Ticket');
 		$email->addContent("text/html", $ticket);
